@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.controller.IStudentController;
+import com.example.dto.IUStudentDTO;
+import com.example.dto.StudentDTO;
 import com.example.entities.Student;
 import com.example.services.IStudentService;
 
@@ -25,9 +27,10 @@ public class StudentControllerImpl implements IStudentController{
 	
 	@Override
 	@PostMapping(path="/save")
-	public Student saveStudent(@RequestBody Student student) {
-		return studentService.saveStudent(student);
+	public StudentDTO saveStudent(@RequestBody IUStudentDTO IUstudentDTO) {
+		return studentService.saveStudent(IUstudentDTO);
 	}
+
 
 	@Override
 	@GetMapping(path="/listAll")
@@ -52,6 +55,8 @@ public class StudentControllerImpl implements IStudentController{
 	public Student updateStudent(@PathVariable(name="id") Integer id, @RequestBody Student updateStudent) {
 		return studentService.updateStudent(id, updateStudent);
 	}
+
+
 	
 	
 }

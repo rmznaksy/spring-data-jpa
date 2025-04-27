@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.dto.IUStudentDTO;
+import com.example.dto.StudentDTO;
 import com.example.entities.Student;
 
 @Service
 public interface IStudentService {
 	
-	public Student saveStudent(Student student);
+	public StudentDTO saveStudent(IUStudentDTO student);
 
 	public List<Student> getAll();
 	
